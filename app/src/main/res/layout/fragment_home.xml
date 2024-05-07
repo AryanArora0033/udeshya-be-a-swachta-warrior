@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_white"
+    tools:context=".HomeFragment">
+
+    <TextView
+
+        android:id="@+id/udeshya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Udeshya"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_photo"
+        android:layout_margin="20dp"
+        android:background="@drawable/circular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/green_dustbin"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/green_dustbin"
+        app:layout_constraintTop_toBottomOf="@id/udeshya"
+        android:background="@drawable/circular"
+        app:layout_constraintEnd_toStartOf="@id/blue_dustbin"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/blue_dustbin"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/blue_dustbin"
+        app:layout_constraintStart_toEndOf="@id/green_dustbin"
+        android:background="@drawable/circular"
+        app:layout_constraintTop_toBottomOf="@id/udeshya"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_for"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="20dp"
+        android:text="For"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/green_dustbin" />
+
+    <TextView
+        android:id="@+id/txt_for2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="112dp"
+        android:textSize="16dp"
+        android:text="For"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blue_dustbin" />
+
+    <TextView
+        android:id="@+id/biodegradable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="3dp"
+        android:text="Bio-Degradable"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_for" />
+
+    <TextView
+        android:id="@+id/nonbiodegradable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="48dp"
+        android:text="Non Bio-Degradable"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_for2" />
+
+    <TextView
+        android:id="@+id/waste1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="3dp"
+        android:text="waste"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/biodegradable" />
+
+    <TextView
+        android:id="@+id/waste2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="100dp"
+        android:text="waste"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nonbiodegradable" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="68dp"
+        android:text="---------------------------------------------------------------------"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/waste2" />
+
+    <TextView
+        android:id="@+id/txt_beapart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="92dp"
+        android:text="Be a part"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/waste1" />
+
+    <ImageView
+        android:id="@+id/img_broom"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_broom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_beapart" />
+
+    <TextView
+        android:id="@+id/txt_makingindia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="188dp"
+        android:text="of making India"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_broom" />
+
+    <TextView
+        android:id="@+id/txt_clean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="68dp"
+        android:text="CLEAN"
+        android:textColor="@color/orange"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_makingindia" />
+
+    <TextView
+        android:id="@+id/txt_and"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="112dp"
+        android:text="AND"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_clean" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="GREEN"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/green"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_and" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

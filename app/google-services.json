@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "275444480091",
+    "project_id": "udeshya-6fad3",
+    "storage_bucket": "udeshya-6fad3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275444480091:android:eb09a9e32ee0094067a77e",
+        "android_client_info": {
+          "package_name": "com.example.udeshya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275444480091-ufj4fiavc9iinu6vuqkcefv2b5f0lp1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBozRTqraQUITtm7KmNfXh-aTL2qBYSqy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275444480091-ufj4fiavc9iinu6vuqkcefv2b5f0lp1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
