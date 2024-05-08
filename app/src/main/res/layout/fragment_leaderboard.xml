@@ -63,6 +63,7 @@
                 android:layout_marginLeft="30dp"
                 />
             <TextView
+                android:id="@+id/my_points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/txt_swachtapointsare"
@@ -71,6 +72,7 @@
                 android:textColor="@color/gold"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 android:text="points"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

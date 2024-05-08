@@ -20,6 +20,7 @@ import android.util.Log
 import android.view.Surface
 import android.view.TextureView
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -36,6 +37,7 @@ import java.lang.reflect.Method
 
 @Suppress("DEPRECATION")
 class CameraActivity : AppCompatActivity() {
+
     lateinit var labels: List<String>
     var colors = listOf<Int>(
         Color.BLUE, Color.GREEN, Color.RED, Color.CYAN, Color.GRAY, Color.BLACK,
@@ -119,6 +121,7 @@ class CameraActivity : AppCompatActivity() {
                         canvas.drawRect(RectF(locations.get(x+1)*w, locations.get(x)*h, locations.get(x+3)*w, locations.get(x+2)*h), paint)
                         paint.style = Paint.Style.FILL
                         canvas.drawText(labels.get(classes.get(index).toInt())+" "+fl.toString(), locations.get(x+1)*w, locations.get(x)*h, paint)
+                        is_detected()
                     }
                 }
                 imageView.setImageBitmap(mutable)
@@ -126,6 +129,16 @@ class CameraActivity : AppCompatActivity() {
             }
         }
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
+    }
+
+    private fun is_detected() {
+        SharedPreferences.init(this)
+        var points=SharedPreferences.getInt(PrefConstant.Points_of_User)
+        points += 10
+        SharedPreferences.putInt(PrefConstant.Points_of_User,points)
+        Toast.makeText(this,"Waste Detected ${points}",Toast.LENGTH_SHORT).show()
+        finish()
+
     }
 
     override fun onDestroy() {

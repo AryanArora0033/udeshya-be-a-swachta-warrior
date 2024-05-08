@@ -22,4 +22,10 @@ object SharedPreferences {
     fun getString(key: String):String?{
         return preferences.getString(key,"User")
     }
+    fun putInt(key:String,value:Int){
+        preferences.edit().putInt(key,value).commit()
+    }
+    fun getInt(key: String):Int{
+        return preferences.getInt(key,0)
+    }
 }
