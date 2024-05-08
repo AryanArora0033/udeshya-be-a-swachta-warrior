@@ -102,9 +102,9 @@ class CameraActivity : AppCompatActivity() {
                 image=imageProcessor.process(image)
 
                 val outputs = model.process(image)
-                val locations = outputs.locationsAsTensorBuffer.floatArray
-                val classes = outputs.classesAsTensorBuffer.floatArray
-                val scores = outputs.scoresAsTensorBuffer.floatArray
+                val locations = outputs.locationAsTensorBuffer.floatArray
+                val classes = outputs.categoryAsTensorBuffer.floatArray
+                val scores = outputs.scoreAsTensorBuffer.floatArray
                 val numberOfDetections = outputs.numberOfDetectionsAsTensorBuffer.floatArray
 
                 var mutable=bitmap.copy(Bitmap.Config.ARGB_8888,true)
