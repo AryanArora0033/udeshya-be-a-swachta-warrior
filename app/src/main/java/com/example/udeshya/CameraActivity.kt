@@ -94,9 +94,6 @@ class CameraActivity : AppCompatActivity() {
 
                 bitmap=textureView.bitmap!!
 
-
-
-
                 var image = TensorImage.fromBitmap(bitmap)
 
                 image=imageProcessor.process(image)
@@ -106,10 +103,8 @@ class CameraActivity : AppCompatActivity() {
                 val classes = outputs.categoryAsTensorBuffer.floatArray
                 val scores = outputs.scoreAsTensorBuffer.floatArray
                 val numberOfDetections = outputs.numberOfDetectionsAsTensorBuffer.floatArray
-
                 var mutable=bitmap.copy(Bitmap.Config.ARGB_8888,true)
                 val canvas=Canvas(mutable)
-
                 val h = mutable.height
                 val w = mutable.width
                 paint.textSize = h/15f
@@ -126,11 +121,7 @@ class CameraActivity : AppCompatActivity() {
                         canvas.drawText(labels.get(classes.get(index).toInt())+" "+fl.toString(), locations.get(x+1)*w, locations.get(x)*h, paint)
                     }
                 }
-
                 imageView.setImageBitmap(mutable)
-
-
-
 
             }
         }
