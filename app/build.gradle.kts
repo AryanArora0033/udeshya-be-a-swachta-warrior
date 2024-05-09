@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

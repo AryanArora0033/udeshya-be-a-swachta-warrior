@@ -13,6 +13,11 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import com.example.udeshya.databinding.ActivityMainBinding
+import com.google.android.play.integrity.internal.al
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -72,6 +77,18 @@ class MainActivity : AppCompatActivity() {
 
        }
 
+        val senderMail = FirebaseAuth.getInstance().currentUser?.email.toString()
+        SharedPreferences.init(this)
+        var point=SharedPreferences.getInt(PrefConstant.Points_of_User)
+
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef = db.collection("users")
+        val documentRef = collectionRef.document(senderMail)
+        val hashMap = HashMap<String, Int>()
+
+        hashMap["Points"] = point
+        documentRef.set(hashMap)
+        documentRef.update("Points", point)
 
 
 
