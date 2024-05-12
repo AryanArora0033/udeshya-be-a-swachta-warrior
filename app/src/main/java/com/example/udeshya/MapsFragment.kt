@@ -1,11 +1,18 @@
 package com.example.udeshya
 
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import com.example.udeshya.PrefConstant.lati
+import com.example.udeshya.PrefConstant.longi
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -14,8 +21,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+lateinit var lo : String
+lateinit var la: String
+
 class MapsFragment : Fragment() {
 
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    @SuppressLint("MissingPermission")
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -26,12 +38,39 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this.requireActivity())
+        getlocation()
+
+//        val sydney = LatLng(lati, longi)
+//        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
         //for showing my location
         googleMap.isMyLocationEnabled = true
+    }
+
+    private fun getlocation() {
+        if ((ActivityCompat.checkSelfPermission(this.requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED)
+            && (ActivityCompat.checkSelfPermission(this.requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED)) {
+            activity?.requestPermissions(
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                100 // Request code (can be any unique integer)
+
+            )
+            return
+
+
+        }
+        val location=fusedLocationProviderClient.lastLocation
+        location.addOnSuccessListener {
+            la=it.latitude.toString()
+            lo=it.latitude.toString()
+            SharedPreferences.init(this.requireContext())
+            SharedPreferences.putString(PrefConstant.lati, la)
+            SharedPreferences.putString(PrefConstant.longi,lo)
+        }
     }
 
     override fun onCreateView(
@@ -39,6 +78,8 @@ class MapsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
 

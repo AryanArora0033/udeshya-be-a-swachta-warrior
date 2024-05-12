@@ -2,6 +2,7 @@ package com.example.udeshya
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -28,6 +29,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.udeshya.ml.AutoModel1
+import com.google.android.play.integrity.internal.f
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
@@ -121,7 +123,7 @@ class CameraActivity : AppCompatActivity() {
                         canvas.drawRect(RectF(locations.get(x+1)*w, locations.get(x)*h, locations.get(x+3)*w, locations.get(x+2)*h), paint)
                         paint.style = Paint.Style.FILL
                         canvas.drawText(labels.get(classes.get(index).toInt())+" "+fl.toString(), locations.get(x+1)*w, locations.get(x)*h, paint)
-                        is_detected()
+                        is_detected(labels.get(classes.get(index).toInt()))
                     }
                 }
                 imageView.setImageBitmap(mutable)
@@ -130,14 +132,20 @@ class CameraActivity : AppCompatActivity() {
         }
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
     }
-
-    private fun is_detected() {
+    var f=true
+    private fun is_detected(string: String) {
         SharedPreferences.init(this)
         var points=SharedPreferences.getInt(PrefConstant.Points_of_User)
         points += 10
         SharedPreferences.putInt(PrefConstant.Points_of_User,points)
-        Toast.makeText(this,"Waste Detected ${points}",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this," ${string} detected \n \t\t\t\t Total pts are:${points}🪙   ",Toast.LENGTH_LONG).show()
         finish()
+        if(f==true){
+            val intent=Intent(this,SendLocation::class.java)
+            startActivity(intent)
+        }
+        f=false
+
 
     }
 

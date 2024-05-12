@@ -13,11 +13,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:background="@color/blue"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp">
         <ImageView
             android:id="@+id/img_point"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_point"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
             app:layout_constraintStart_toEndOf="@id/img_point"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="5dp"
             android:text="name of the person:"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -48,6 +48,8 @@
                 android:text="Points"
                 app:layout_constraintStart_toEndOf="@id/txt_name"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginLeft="@dimen/dimen_10dp"/>
 
